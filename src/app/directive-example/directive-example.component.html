@@ -1,0 +1,40 @@
+<p>directive-example works!</p>
+<div class="container w-50"> 
+    <div class="mb-3" *ngIf="isShow"> 
+        <label for="id1" class="form-label">User Name</label>
+        /<input type="text" class="form-control" id="id1" name="uName">
+    </div>
+</div>
+<label for="" class="fw-bold">Contact Preference: </label>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="Email" [(ngModel)]="contactPreference">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Email
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="Mobile" [(ngModel)]="contactPreference">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Mobile
+        </label>
+      </div>
+
+    <div class="mb-3" *ngIf="contactPreference == 'Mobile';else elseBlock">
+        <label for="id1" class="form-label">Mobile No</label>
+        <input type="text" class="form-control" id="id1" name="uName">
+    </div>
+    <ng-template #elseBlock>
+        <div class="mb-3">
+            <label for="id1" class="form-label">Email</label>
+            <input type="text" class="form-control" id="id1" name="uName">
+        </div>
+    </ng-template>
+
+
+<!-- <button type="button" (click)="toggle()">Toggle</button> -->
+<!-- <button class="btn btn-secondary ms-2" *ngIf="!isDisplay">Sign Up</button> -->
+
+<!-- //or -->
+
+<button class="btn btn-primary" *ngIf="isDisplay;">Login</button>
+
